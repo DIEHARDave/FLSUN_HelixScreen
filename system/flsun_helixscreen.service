@@ -1,0 +1,15 @@
+[Unit]
+Description=FLSUN_HelixScreen: install HelixScreen updates
+Wants=network-online.target
+After=network-online.target flsun-timesync.service moonraker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/pi/FLSUN_HelixScreen/flsun_helixscreen.py apply
+TimeoutStartSec=infinity
+# Moonraker restarts this service after updating FLSUN_HelixScreen. Let an
+# install in progress finish; the new run waits for it.
+KillMode=none
+
+[Install]
+WantedBy=multi-user.target

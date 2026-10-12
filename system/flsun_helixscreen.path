@@ -1,0 +1,9 @@
+[Unit]
+Description=Apply FLSUN_HelixScreen when flsun_helixscreen.cfg is saved
+
+[Path]
+PathChanged=/home/pi/printer_data/config/flsun_helixscreen.cfg
+Unit=flsun_helixscreen.service
+
+[Install]
+WantedBy=multi-user.target
